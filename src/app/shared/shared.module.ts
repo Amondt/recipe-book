@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { LoggingService } from "../logging.service";
 
 import { AlertComponent } from "./alert/alert.component";
 import { DropdownDirective } from "./dropdown.directive";
@@ -22,5 +23,6 @@ import { PlaceholderDirective } from "./placeholder/placeholder.directive";
         CommonModule,
     ],
     entryComponents: [AlertComponent],
+    providers: [LoggingService],
 })
 export class SharedModule {}
