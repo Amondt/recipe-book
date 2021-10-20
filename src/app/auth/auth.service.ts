@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, Subject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { User } from "./user.model";
+import { environment } from "../../environments/environment";
 
 export interface AuthResponseData {
     kind: string;
@@ -27,7 +28,8 @@ export class AuthService {
         return this.http
             .post<AuthResponseData>(
                 this.firebaseAuthBaseUrl +
-                    ":signUp?key=AIzaSyAp-_IiMOyXvn0yPn6INNJgn29U15k-Z0U",
+                    ":signUp?key=" +
+                    environment.firebaseAPIKey,
                 {
                     email,
                     password,
@@ -77,7 +79,8 @@ export class AuthService {
         return this.http
             .post<AuthResponseData>(
                 this.firebaseAuthBaseUrl +
-                    ":signInWithPassword?key=AIzaSyAp-_IiMOyXvn0yPn6INNJgn29U15k-Z0U",
+                    ":signInWithPassword?key=" +
+                    environment.firebaseAPIKey,
                 {
                     email,
                     password,
